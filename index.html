@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambre Roasters — Cafés de spécialité torréfiés à la main</title>
+<meta name="description" content="Ambre Roasters : six cafés de spécialité, torréfiés en petits lots.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="#top" aria-label="Ambre Roasters, accueil"><span class="logo-mark">◐</span> Ambre <em>Roasters</em></a>
+  <nav>
+    <a href="#catalogue">Catalogue</a>
+    <a href="#maison">La maison</a>
+  </nav>
+  <button class="cart-btn" id="open-cart" aria-label="Ouvrir le panier">
+    Panier <span class="badge" id="cart-count">0</span>
+  </button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow">Torréfaction artisanale · Petits lots</p>
+    <h1>Le café, <em>à la lueur de l’ambre.</em></h1>
+    <p class="lead">Six cafés d’exception, sélectionnés en direct auprès de producteurs, torréfiés chaque semaine et expédiés sous 48 h.</p>
+    <a class="btn" href="#catalogue">Découvrir la sélection</a>
+  </section>
+
+  <section id="catalogue" class="catalogue">
+    <div class="section-head">
+      <h2>La sélection</h2>
+      <p id="result-count" aria-live="polite"></p>
+    </div>
+    <div class="toolbar">
+      <div class="chips" role="group" aria-label="Filtrer par torréfaction" id="filters"></div>
+      <label class="sort">Trier par
+        <select id="sort">
+          <option value="featured">Sélection de la maison</option>
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="name">Nom (A–Z)</option>
+          <option value="intensity">Intensité</option>
+        </select>
+      </label>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="maison" class="about">
+    <h2>La maison</h2>
+    <div class="about-cols">
+      <p>Ambre Roasters est née d’une obsession : révéler la douceur et la complexité de chaque grain. Nos lots sont traçables, payés au juste prix et torréfiés en petite quantité.</p>
+      <p>Chaque sachet de 250 g porte sa date de torréfaction. Nous recommandons de le déguster entre 7 et 40 jours après cette date.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>© Ambre Roasters — marque fictive, projet de démonstration.</span>
+  <span>Prix indiqués hors taxes · TVA 5,5 %</span>
+</footer>
+
+<div class="overlay" id="overlay" hidden></div>
+
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Panier">
+  <div class="drawer-head">
+    <h2>Votre panier</h2>
+    <button class="icon-btn" id="close-cart" aria-label="Fermer le panier">✕</button>
+  </div>
+  <div class="drawer-body" id="cart-items"></div>
+  <div class="drawer-foot" id="cart-foot">
+    <dl class="totals">
+      <div><dt>Sous-total HT</dt><dd id="subtotal">0,00 €</dd></div>
+      <div><dt>TVA (5,5 %)</dt><dd id="vat">0,00 €</dd></div>
+      <div class="grand"><dt>Total TTC</dt><dd id="total">0,00 €</dd></div>
+    </dl>
+    <button class="btn block" id="checkout">Commander</button>
+    <button class="link-btn" id="clear-cart">Vider le panier</button>
+  </div>
+</aside>
+
+<div class="modal" id="confirmation" role="dialog" aria-modal="true" aria-labelledby="conf-title" hidden>
+  <div class="modal-card">
+    <div class="check">✓</div>
+    <h2 id="conf-title">Merci pour votre commande</h2>
+    <p>Commande <strong id="conf-number"></strong></p>
+    <ul class="conf-list" id="conf-items"></ul>
+    <dl class="totals">
+      <div><dt>Sous-total HT</dt><dd id="conf-subtotal"></dd></div>
+      <div><dt>TVA (5,5 %)</dt><dd id="conf-vat"></dd></div>
+      <div class="grand"><dt>Total TTC</dt><dd id="conf-total"></dd></div>
+    </dl>
+    <p class="muted">Votre café sera torréfié cette semaine et expédié sous 48 h.</p>
+    <button class="btn" id="conf-close">Continuer mes découvertes</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
